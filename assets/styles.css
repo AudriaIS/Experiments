@@ -1,0 +1,10 @@
+body {
+  background-color: pink;
+  color: black;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  font-family: 'Times New Roman', Times, serif;
+}
