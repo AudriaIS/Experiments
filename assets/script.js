@@ -4,7 +4,7 @@ let temperature = response.data.temperature.current; let cityElement = document.
 
 function searchCity(city) {  
   let apiKey = 'f2b957891a99c0f7bo4abte66a43c0ba';  
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;  
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial';  
 
 axios.get(apiUrl).then(refreshWeather);}
 
