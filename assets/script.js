@@ -11,7 +11,7 @@ function refreshWeather(response) {
   let formatWindSpeed = 0.621371 * response.data.wind.speed;
 
   console.log(response.data.wind.speed);
-  cityElement.innerHTML = response.data.city;
+  cityElement.innerHTML = response.data.city + ', ' + response.data.country;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
