@@ -64,6 +64,7 @@ main {
 
 .weather-app-icon {
   max-width: 800%;
+  opacity: 70%;
 }
 
 .weather-app-temperature {
