@@ -1,7 +1,7 @@
 function refreshWeather(response) {
   let temperatureElement = document.querySelector('#temperature');
   let temperature = response.data.temperature.current;
-  let cityElement = document.querySelector('#city');
+  let convertedTemperature = (temperature * 9) / 5 + 32;
   let descriptionElement = document.querySelector('#description');
   let humidityElement = document.querySelector('#humidity');
   let windSpeedElement = document.querySelector('#wind-speed');
@@ -9,16 +9,22 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector('#icon');
   let formatWindSpeed = 0.621371 * response.data.wind.speed;
+  let cityElement = document.querySelector('#city');
+  let countryElement = response.data.country;
+  countryElement = countryElement.replace('United States of America', 'USA');
 
-  console.log(response.data.wind.speed);
-  cityElement.innerHTML = response.data.city + ', ' + response.data.country;
+  cityElement.innerHTML = response.data.city + ', ' + countryElement;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = Math.round(formatWindSpeed) + 'mph';
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 3);
+  temperatureElement.innerHTML = Math.round(convertedTemperature);
+
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+  getForecast(response.data.city);
 }
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
