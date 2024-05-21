@@ -12,7 +12,7 @@ function refreshWeather(response) {
   let cityElement = document.querySelector('#city');
   let countryElement = response.data.country;
   countryElement = countryElement.replace('United States of America', 'USA');
-
+  console.log(response.data);
   cityElement.innerHTML = response.data.city + ', ' + countryElement;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
