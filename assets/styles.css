@@ -9,13 +9,11 @@ a {
   background: white;
   max-width: 60%;
   margin: 45px auto;
-  padding: 30px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
   border-radius: 16px;
+  padding: 30px;
 }
-h1 {
-  font-weight: 700;
-}
+
 header {
   border-bottom: 1px solid #f9f7fe;
   padding: 0 0 30px 0;
@@ -26,20 +24,20 @@ header {
   border: none;
   border-radius: 6px;
   width: 80%;
-  padding: 15px 20px;
   font-size: 16px;
+  padding: 15px 20px;
 }
 .search-form-button {
   background: #885df1;
-  padding: 15px 20px;
-  color: white;
-  border-radius: 6px;
+  padding: 15px 30px;
   border: none;
-  margin-left: 5px;
   font-size: 16px;
+  margin-left: 5px;
+  border-radius: 6px;
+  color: white;
 }
 main {
-  padding: 30px;
+  padding: 30px 0;
 }
 .weather-app-data {
   display: flex;
@@ -47,15 +45,14 @@ main {
 }
 .weather-app-city {
   margin: 0;
-  font-size: 38px;
-  line-height: 48px;
+  font-size: 150%;
+  line-height: 100%;
 }
 
 .weather-app-detail {
-  font-size: 20px;
+  font-size: 100%;
   color: rgba(39, 33, 66, 0.4);
-  line-height: 20px;
-  font-weight: 500;
+  font-weight: bold;
 }
 .weather-app-detail-strong {
   color: #f65282;
@@ -65,20 +62,52 @@ main {
 }
 
 .weather-app-icon {
-  width: 88px;
-  height: 88px;
+  width: 350%;
 }
 
 .weather-app-temperature {
-  font-size: 88px;
-  margin-left: 10px;
+  font-size: 350%;
+  line-height: ;
   font-weight: bold;
 }
 
-.weatehr-app-unit {
+.weather-app-unit {
   margin-top: 16px;
   font-size: 28px;
 }
+
+.weather-forecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.weather-forecast-date {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.weather-forecast-icon {
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;
+}
+.weather-forecast-temperatures {
+  text-align: center;
+  color: #f65282;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-forecast-temperature {
+  padding: 0 10px;
+}
+
 footer {
   border-bottom: 1px solid #f9f7fe;
   padding: 30px 0 0 0;
