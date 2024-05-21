@@ -25,8 +25,8 @@ header {
   border-radius: 6px;
   width: 60%;
   font-size: 130%;
-  font-weight: bold;
-  padding: 3% 4%;
+  font-weight: bolder;
+  padding: 2% 5%;
 }
 .search-form-button {
   background: #885df1;
@@ -42,7 +42,7 @@ main {
 }
 .weather-app-data {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 .weather-app-city {
   margin: 0;
@@ -80,7 +80,7 @@ main {
 
 .weather-forecast {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top: 2%;
 }
 
@@ -107,13 +107,13 @@ main {
 }
 
 .weather-forecast-temperature {
-  padding: 0 4%;
+  padding: 0 3%;
 }
 
 footer {
   border-bottom: 1px solid #f9f7fe;
-  padding: 30px 0 0 0;
-  text-align: center;
-  font-size: 14px;
+  padding: 2% 0 0 4%;
+  text-align: left;
+  font-size: 90%;
   color: rgba(0, 0, 0, 0.6);
 }
