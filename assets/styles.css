@@ -24,14 +24,15 @@ header {
   border: none;
   border-radius: 6px;
   width: 80%;
-  font-size: 120%;
-  padding: 2% 4%;
+  font-size: 130%;
+  font-weight: bold;
+  padding: 3% 5%;
 }
 .search-form-button {
   background: #885df1;
   padding: 2% 4%;
   border: none;
-  font-size: 110%;
+  font-size: 120%;
   margin-left: 2%;
   border-radius: 6px;
   color: white;
