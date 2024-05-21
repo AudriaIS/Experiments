@@ -23,7 +23,7 @@ header {
   background-color: #f9f7fe;
   border: none;
   border-radius: 6px;
-  width: 80%;
+  width: 60%;
   font-size: 130%;
   font-weight: bold;
   padding: 3% 4%;
@@ -42,7 +42,7 @@ main {
 }
 .weather-app-data {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .weather-app-city {
   margin: 0;
@@ -81,7 +81,7 @@ main {
 .weather-forecast {
   display: flex;
   justify-content: space-around;
-  margin-top: 25%%;
+  margin-top: 2%;
 }
 
 .weather-forecast-date {
