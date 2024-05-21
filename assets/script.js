@@ -1,7 +1,7 @@
 function refreshWeather(response) {
   let temperatureElement = document.querySelector('#temperature');
   let temperature = response.data.temperature.current;
-  let cityElement = document.querySelector('#city');
+  let convertedTemperature = (temperature * 9) / 5 + 32;
   let descriptionElement = document.querySelector('#description');
   let humidityElement = document.querySelector('#humidity');
   let windSpeedElement = document.querySelector('#wind-speed');
@@ -9,16 +9,22 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector('#icon');
   let formatWindSpeed = 0.621371 * response.data.wind.speed;
-
-  console.log(response.data.wind.speed);
-  cityElement.innerHTML = response.data.city + ', ' + response.data.country;
+  let cityElement = document.querySelector('#city');
+  let countryElement = response.data.country;
+  countryElement = countryElement.replace('United States of America', 'USA');
+  console.log(response.data);
+  cityElement.innerHTML = response.data.city + ', ' + countryElement;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = Math.round(formatWindSpeed) + 'mph';
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 3);
+  temperatureElement.innerHTML = Math.round(convertedTemperature);
+
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+  getForecast(response.data.city);
 }
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -51,6 +57,48 @@ function handleSearchSubmit(event) {
   let searchInput = document.querySelector('#search-form-input');
 
   searchCity(searchInput.value);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  return days[date.getDay()];
+}
+
+function getForecast(city) {
+  let apiKey = 'f2b957891a99c0f7bo4abte66a43c0ba';
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecastHtml = '';
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
+      <div class="weather-forecast-day">
+        <div class="weather-forecast-date">${formatDay(day.time)}</div>
+
+        <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+        <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature">
+            <strong>${Math.round(day.temperature.maximum)}º</strong>
+          </div>
+          <div class="weather-forecast-temperature">${Math.round(
+            day.temperature.minimum
+          )}º</div>
+        </div>
+      </div>
+    `;
+    }
+  });
+
+  let forecastElement = document.querySelector('#forecast');
+  forecastElement.innerHTML = forecastHtml;
 }
 
 let searchFormElement = document.querySelector('#search-form');
